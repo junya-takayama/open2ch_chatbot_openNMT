@@ -42,7 +42,7 @@ onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_<任意の
 
 Topk-Sampling (k=5)
 ```sh
-onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_39500.pt --src ./data/test.src --output data/pred_sampling.txt --gpu 0 --replace_unk --random_sampling_topk 5
+onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_<任意のステップ数>.pt --src ./data/test.src --output data/pred_sampling.txt --gpu 0 --replace_unk --random_sampling_topk 5
 ```
 
 ### 手順4: Rest API サーバの構築
