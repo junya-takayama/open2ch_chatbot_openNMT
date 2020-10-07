@@ -60,13 +60,13 @@ open("./data/data_for_spm.txt", "w").write(data_for_spm)
 print("training sentencepiece model...")
 sp = spm.SentencePieceProcessor()
 spm.SentencePieceTrainer.Train(
-    "--input=./data/data_for_spm.txt --model_prefix=./data/spm_trained_model --vocab_size=16000 --normalization_rule_name=identity --model_type=unigram  --max_sentence_length=2048"
+    "--input=./data/data_for_spm.txt --model_prefix=./trained_model/spm_trained_model --vocab_size=16000 --normalization_rule_name=identity --model_type=unigram  --max_sentence_length=2048"
 )
 
 # sentencepiece 学習済みモデルの読み込み
 print("loading the trained sentencepiece model...")
 sp = spm.SentencePieceProcessor()
-sp.load("./data/spm_trained_model.model")
+sp.load("./trained_model/spm_trained_model.model")
 
 # パラレルコーパスの作成
 print("building corpus for onmt...")
