@@ -4,7 +4,7 @@
 
 ## 使いかた
 Rest API サーバの構築以外は [Colab](https://colab.research.google.com/drive/1Fs-wklGpXaew2KBAowBXbeYEDycDMsly?usp=sharing) でも動かせるようにしています．説明も Colab の方が詳しいです．  
-手っ取り早く Rest API サーバを立ち上げたい方は[学習済みモデル一式]()を trained_model 以下に配置し，手順4に飛んでください．  
+手っ取り早く Rest API サーバを立ち上げたい方は[学習済みモデル一式](https://drive.google.com/file/d/1nVoH6GJx4f7D2UcQUSv_uRiAVq4UBW4v/view?usp=sharing)を trained_model 以下に配置し，手順4に飛んでください．  
 config ファイルをいくつか用意したので，余力があれば試してみてください（config_chatbot_livejupiter_transformer.yaml はうまくチューニングしないとまともに学習しないかもしれません）
 
 ### 手順1: 事前準備
