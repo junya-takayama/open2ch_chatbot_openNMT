@@ -1,0 +1,53 @@
+## Where the samples will be written
+save_data: data/run/example
+## Where the vocab(s) will be written
+src_vocab: data/run/vocab.src
+tgt_vocab: data/run/vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+share_vocab: True
+
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: data/train.src
+        path_tgt: data/train.tgt
+    valid:
+        path_src: data/valid.src
+        path_tgt: data/valid.tgt
+
+# Vocabulary files that were just created
+src_vocab: data/run/vocab.src
+tgt_vocab: data/run/vocab.tgt
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Where to save the checkpoints
+save_model: ./trained_model/model_chatbot_livejupiter
+save_checkpoint_steps: 500
+train_steps: 200000
+valid_steps: 500
+batch_size: 256
+early_stopping: 4 
+early_stopping_criteria: ppl
+learning_rate: 0.1
+
+
+# Model
+encoder_type: transformer
+decoder_type: transformer
+enc_layers: 3
+dec_layers: 3
+heads: 8
+rnn_size: 512
+word_vec_size: 512
+transformer_ff: 2048
+dropout_steps: [0]
+dropout: [0.1]
+attention_dropout: [0.1]
+share_decoder_embeddings: true
+share_embeddings: true
+position_encoding: true

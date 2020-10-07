@@ -1,0 +1,21 @@
+{
+  "models_root": "./trained_model",
+  "models": [
+    {
+      "id": 0,
+      "model": "model_chatbot_livejupiter_step_103500.pt",
+      "timeout": 600,
+      "on_timeout": "to_cpu",
+      "load": true,
+      "opt": {
+        "beam_size": 1,
+        "random_sampling_topk": 5,
+        "replace_unk": true
+      },
+      "tokenizer": {
+        "type": "sentencepiece",
+        "model": "../data/spm_trained_model.model"
+      }   
+    }
+  ]
+}
