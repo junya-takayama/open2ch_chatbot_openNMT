@@ -5,6 +5,7 @@
 
 /data/*
 !/data/pred*.txt
+!/data/test.*
 
 *.pt
 .DS_Store
