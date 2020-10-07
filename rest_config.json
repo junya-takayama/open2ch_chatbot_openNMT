@@ -14,7 +14,7 @@
       },
       "tokenizer": {
         "type": "sentencepiece",
-        "model": "../data/spm_trained_model.model"
+        "model": "spm_trained_model.model"
       }   
     }
   ]
