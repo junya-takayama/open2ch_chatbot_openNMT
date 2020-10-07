@@ -9,42 +9,56 @@ config ファイルをいくつか用意したので，余力があれば試し�
 
 ### 手順1: 事前準備
 おーぷん2ちゃんねるコーパスのダウンロードと OpenNMT-py のインストールを行います  
-```
+```sh
 bash setup.sh
 ```
 
 ### 手順2: おーぷん2ちゃんねるコーパスの前処理
 sentencepiece を用いてコーパス全体をトークナイズし，OpenNMT-py 準拠の形式で保存します．  
-```
+```sh
 python build_corpus_and_tokenizer.py
 ```
 
 ### 手順3: 対話システムの構築
 #### 語彙辞書の構築
-```
+```sh
 onmt_build_vocab --config config_chatbot_livejupiter.yaml -n_sample 100000
 ```
 
 #### 訓練
 必ず GPU 環境で（なければ Colab で）  
-```
+```sh
 onmt_train --config config_chatbot_livejupiter.yaml
 ```
 
 #### テストデータでの推論
 Beam Search (k=5)  
 `<任意のステップ数>` とある部分については，基本的には valid での ppl が一番低かったステップ数を選ぶと良いです
-```
+```sh
 onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_<任意のステップ数>.pt --src ./data/test.src --output data/pred_beam.txt --gpu 0 --replace_unk
 ```  
 
 Topk-Sampling (k=5)
-```
+```sh
 onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_39500.pt --src ./data/test.src --output data/pred_sampling.txt --gpu 0 --replace_unk --random_sampling_topk 5
 ```
 
 ### 手順4: Rest API サーバの構築
 rest_config.json の `"model": "model_chatbot_livejupiter_step_103500.pt",` は適宜書き換えてください．  
-```
+以下のコマンドを実行すると localhost:5000 で Rest API サーバが立ち上がります
+```sh
 python server.py --config rest_config.json
+```
+`/translator/translate` に POST で以下のようにテキストを送ると，
+```python
+import requests
+import json
+
+headers = {"Content-Type" : "application/json"}
+contents = json.dumps([{"src": "野球したい", "id": 0}])
+print(requests.post(translate_url, contents, headers=headers).json())
+```
+以下のような response が帰ってきます．`"tgt"` がシステムからの応答になります．
+```python
+[[{'n_best': 1, 'pred_score': -0.5358448028564453, 'src': '野球したい', 'tgt': 'やきう興味ないわ'}]]
 ```
