@@ -3,7 +3,7 @@
 [おーぷん2ちゃんねる対話コーパス](https://github.com/1never/open2ch-dialogue-corpus) を学習データとして，OpenNMT-py を用いて Seq2Seq ベースの対話システムを構築します．
 
 ## 使いかた
-Rest API サーバの構築以外は [Colab]() でも動かせるようにしています．説明も Colab の方が詳しいです．  
+Rest API サーバの構築以外は [Colab](https://colab.research.google.com/drive/1Fs-wklGpXaew2KBAowBXbeYEDycDMsly?usp=sharing) でも動かせるようにしています．説明も Colab の方が詳しいです．  
 手っ取り早く Rest API サーバを立ち上げたい方は[学習済みモデル一式]()を trained_model 以下に配置し，手順4に飛んでください．  
 config ファイルをいくつか用意したので，余力があれば試してみてください（config_chatbot_livejupiter_transformer.yaml はうまくチューニングしないとまともに学習しないかもしれません）
 
@@ -40,7 +40,7 @@ onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_<任意の
 
 Topk-Sampling (k=5)
 ```
-!onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_39500.pt --src ./data/test.src --output data/pred_sampling.txt --gpu 0 --replace_unk --random_sampling_topk 5
+onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_39500.pt --src ./data/test.src --output data/pred_sampling.txt --gpu 0 --replace_unk --random_sampling_topk 5
 ```
 
 ### 手順4: Rest API サーバの構築
