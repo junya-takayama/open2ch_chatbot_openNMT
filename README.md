@@ -56,7 +56,7 @@ import json
 
 headers = {"Content-Type" : "application/json"}
 contents = json.dumps([{"src": "野球したい", "id": 0}])
-print(requests.post(translate_url, contents, headers=headers).json())
+print(requests.post("http://localhost:5000/translator/translate, contents, headers=headers).json())
 ```
 以下のような response が帰ってきます．`"tgt"` がシステムからの応答になります．
 ```python
