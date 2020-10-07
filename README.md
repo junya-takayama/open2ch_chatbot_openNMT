@@ -22,7 +22,7 @@ python build_corpus_and_tokenizer.py
 ### 手順3: 対話システムの構築
 #### 語彙辞書の構築
 ```
-!onmt_build_vocab --config config_chatbot_livejupiter.yaml -n_sample 100000
+onmt_build_vocab --config config_chatbot_livejupiter.yaml -n_sample 100000
 ```
 
 #### 訓練
@@ -35,7 +35,7 @@ onmt_train --config config_chatbot_livejupiter.yaml
 Beam Search (k=5)  
 `<任意のステップ数>` とある部分については，基本的には valid での ppl が一番低かったステップ数を選ぶと良いです
 ```
-!onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_<任意のステップ数>.pt --src ./data/test.src --output data/pred_beam.txt --gpu 0 --replace_unk
+onmt_translate --model ./trained_model/model_chatbot_livejupiter_step_<任意のステップ数>.pt --src ./data/test.src --output data/pred_beam.txt --gpu 0 --replace_unk
 ```  
 
 Topk-Sampling (k=5)
