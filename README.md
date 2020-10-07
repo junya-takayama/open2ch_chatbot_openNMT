@@ -2,10 +2,11 @@
 このリポジトリはコトバデザイン様主催の[対話システム勉強会（第一回）](https://cotobaagent-developers-community.connpass.com/event/188047/) 3コマ目 "OpenNMTによる雑談対話機能の実装" で使用する教材の一部です．  
 [おーぷん2ちゃんねる対話コーパス](https://github.com/1never/open2ch-dialogue-corpus) を学習データとして，OpenNMT-py を用いて Seq2Seq ベースの対話システムを構築します．
 
-See also: [Slide]()
+[講義スライド](https://github.com/junya-takayama/open2ch_chatbot_openNMT/blob/main/slides.pdf)  
+[Colab notebook](https://colab.research.google.com/drive/1Fs-wklGpXaew2KBAowBXbeYEDycDMsly?usp=sharing)
 
 ## 使いかた
-* Rest API サーバの構築以外は [Colab]() でも動かせるようにしています．説明も Colab の方が詳しいです．  
+* Rest API サーバの構築以外は [Colab](https://colab.research.google.com/drive/1Fs-wklGpXaew2KBAowBXbeYEDycDMsly?usp=sharing) でも動かせるようにしています．説明も Colab の方が詳しいです．  
 * 手っ取り早く Rest API サーバを立ち上げたい方は[学習済みモデル一式](https://drive.google.com/file/d/1nVoH6GJx4f7D2UcQUSv_uRiAVq4UBW4v/view?usp=sharing)を trained_model 以下に配置し，手順4に飛んでください．  
 * config ファイルをいくつか用意したので，余力があれば試してみてください（config_chatbot_livejupiter_transformer.yaml はうまくチューニングしないとまともに学習しないかもしれません）
 
